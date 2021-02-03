@@ -1,0 +1,139 @@
+<html>
+ <head>
+   <title> My Own Code creation </title>
+
+   <script>
+     var   emotions = [];//used in generate
+     var weeks = [];//used in missedDays
+      var index = 0;//this is index for the emotion words you put in
+      //var index2 = 0;simplify by usingone index
+    function monday()
+    {
+      var a = document.getElementById("inputM").value;
+      a = a + "!";
+      //alert(a);
+      emotions[index] = a;
+      isFinished(1);
+    }
+
+    function tuesday()
+    {
+      var b = document.getElementById("inputT").value;
+      b = b + " "+ "gurrr..";
+      //alert(b);
+      emotions[index] = b;
+      isFinished(2);
+    }
+
+    function wednesday()
+    {
+      var c = document.getElementById("inputW").value;
+      c = c + " " + "AHHH";
+      //alert(c);
+      emotions[index] = c;
+      isFinished(3);
+    }
+
+    function thursday()
+    {
+      var d = document.getElementById("inputTH").value;
+      d = d + " " + ":(";
+      //alert(d);
+      emotions[index] = d;
+      isFinished(4);
+    }
+
+    function friday()
+    {
+      var e = document.getElementById("inputF").value;
+      e = e + " " + "😠"; //I got the emoji from emojipedia on google
+      //alert(e);
+      emotions[index] = e;
+      isFinished(5);
+    }
+
+    function saturday()
+    {
+      var f = document.getElementById("inputS").value;
+      f = f + " " + "(Panicking..)";
+      //alert(f);
+      emotions[index] = f;
+      isFinished(6);
+    }
+
+    function sunday()
+    {
+      var g = document.getElementById("inputSU").value;
+      g = g + " "+ "WooHoo!"
+      emotions[index] = g;
+
+      //alert(g);
+     isFinished(7);
+    }
+
+
+    function isFinished(x)//keeps track of order
+    {
+          weeks[index] = x;//1  5  7
+          index++;
+    }
+
+    function missedDays()//checks if you got every day of the week and what would happend if you didn't
+    {
+      var weekList = ["M","T","W","TH","F","S","SU"];
+      var list = "";
+
+     for(var i = 0; i < weeks.length; i++)
+     {
+       for(var j =0; j < 7; j++)//the index j is for the id's in the weeklist 
+        {
+           if( weeks[i]  == (j+1))
+           {
+             list = list + " " + weekList[j];
+           }
+           document.getElementById('test').innerHTML;
+        }
+     }
+      /*document.getElementById('inputM').visibility= "hidden";
+      document.getElementById('inputT').visibility= "hidden";
+      document.getElementById('inputW').visibility= "hidden";
+      document.getElementById('inputTH').visibility= "hidden";
+      document.getElementById('inputF').visibility= "hidden";
+      document.getElementById('inputS').visibility= "hidden";
+      document.getElementById('inputSU').visibility= "hidden";*/
+    }
+
+    function generate()//this will generate a random feeling you got in the week
+    {
+       //missedDays();
+      var randEmo = parseInt(Math.random() *emotion.length);
+      index = index + 1;
+
+
+    }
+
+   </script>
+ </head>
+
+ <body>
+  <h1> Your feelings in a week :) :( :| </h1>
+  <h2> Monday: </h2><input type ="text" id= "inputM"> <input type= "button" value= "Happy Submit!" onclick= "monday()">
+  <br> <br>
+  <h2> Tuesay: </h2> <input type ="text" id= "inputT"> <input type= "button" value= "Frustrated Submit!" onclick= "tuesday()">
+  <br> <br>
+  <h2> Wednesday: </h2> <input type ="text" id= "inputW"> <input type= "button" value= "Stressed Submit!" onclick= "wednesday()">
+  <br> <br>
+  <h2> Thursday: </h2> <input type ="text" id= "inputTH"> <input type= "button" value= "sad Submit!" onclick= "thursday()">
+  <br> <br>
+  <h2> Friday: </h2> <input type ="text" id= "inputF"> <input type= "button" value= "angry Submit!" onclick= "friday()">
+  <br> <br>
+  <h2> Saturday: </h2> <input type ="text" id= "inputS"> <input type= "button" value= "worry Submit!" onclick= "saturday()">
+  <br> <br>
+  <h2> Sunday: </h2> <input type ="text" id= "inputSU"> <input type= "button" value= "Best Submit!" onclick= "sunday()">
+  <br><br>
+  <input type = "button" value = "Random feeling in your week" onclick = " generate()">
+
+  <span id= "output"></span>
+
+ </body>
+</html>
