@@ -1,0 +1,264 @@
+<html>
+ <head>
+   <title> My Own Code creation </title>
+
+   <script>
+     var   emotions = [];//used in generate
+     var weeks = [];//used in missedDays
+      var index = 0;//this is index for the emotion words you put in
+      //var index2 = 0;simplify by usingone index
+    function monday()
+    {
+      var a = document.getElementById("inputM").value;
+      a = a + "!";
+      //alert(a);
+      emotions[index] = a;
+      isFinished(1);
+    }
+
+    function tuesday()
+    {
+      var b = document.getElementById("inputT").value;
+      b = b + " "+ "gurrr..";
+      //alert(b);
+      emotions[index] = b;
+      isFinished(2);
+    }
+
+    function wednesday()
+    {
+      var c = document.getElementById("inputW").value;
+      c = c + " " + "AHHH";
+      //alert(c);
+      emotions[index] = c;
+      isFinished(3);//every time a dayis clicked, a number is sent to a record keeping function
+    }
+
+    function thursday()
+    {
+      var d = document.getElementById("inputTH").value;
+      d = d + " " + ":(";
+      //alert(d);
+      emotions[index] = d;
+      isFinished(4);
+    }
+
+    function friday()
+    {
+      var e = document.getElementById("inputF").value;
+      e = e + " " + "😠"; //I got the emoji from emojipedia on google
+      //alert(e);
+      emotions[index] = e;
+      isFinished(5);
+    }
+
+    function saturday()
+    {
+      var f = document.getElementById("inputS").value;
+      f = f + " " + "(Panicking..)";
+      //alert(f);
+      emotions[index] = f;
+      isFinished(6);
+    }
+
+    function sunday()
+    {
+      var g = document.getElementById("inputSU").value;
+      g = g + " "+ "WooHoo!"
+      emotions[index] = g;
+      //alert(g);
+     isFinished(7);
+    }
+
+    function isFinished(x)//keeps track which days have been filled
+    {
+          weeks[index] = x;//this will contain the number of each day clicked
+          index++;
+        //  alert(index);
+        //  alert(weeks);
+        //  alert(emotions);
+    }
+
+    function missedDays()//checks if you got every day of the week and what would happend if you didn't
+    {
+      var weekList = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+      var list = "";
+      var count = 0;
+      //weeks  4 2 6
+      //for every number in week we go through the numbers 1 - 7 to
+      //to find which days were submitted by the user
+     for(var i = 0; i < weeks.length; i++)//go through all days that were clicked
+     {
+       for(var j =0; j < 7; j++)//goes through the number 1 - 7
+        {
+           if( weeks[i]  == (j+1)) //if we find a match we add that day to list from weekList
+           {
+             list = list + " " + weekList[j];
+             count++;//We also count each found dayso that laterwe knowif all 7 days were clicked
+           }
+        }
+        generate(count,list);//now, we are ready to generate a random emotion
+
+     }
+    }
+
+    function generate(count,list)//this will generate a random feeling you got in the week
+    {
+
+     if(count == 7)//passing the count will allow the computer to know if all the index are filled
+     {
+      var randEmo = parseInt(Math.random() *emotions.length);
+      document.getElementById('output').innerHTML= "<br>" + emotions[randEmo];
+      document.getElementById('test').style.visibility= "hidden";
+    }
+    else {
+      document.getElementById('test').innerHTML = "Sorry you only filled: " + list;
+    }
+    }
+   </script>
+
+   <style>
+      .all{
+        text-align: center;
+        font-size: 25px;
+        font-family: monospace;
+      }
+      h1{
+        color: #131339;
+      }
+      body{
+        background-image: url("background.jpeg");
+        background-size: 1600px 1350px;
+        color: white;
+      }
+      /*I used w3schools for the animation of the buttons*/
+      .button1{
+        background-color: white;
+        color: black;
+        border: 4px solid #ff3333;
+        text-align: center;
+      }
+      .button1:hover {
+        background-color: #ff6666;
+        border-radius: 50%;
+      }
+
+      .button2{
+        background-color: white;
+        color: black;
+        border: 4px solid #ff751a;
+        text-align: center;
+      }
+      .button2:hover {
+        background-color: #ff944d;
+        border-radius: 50%;
+      }
+
+      .button3{
+        background-color: white;
+        color: black;
+        border: 4px solid #ffff1a;
+        text-align: center;
+      }
+      .button3:hover {
+        background-color: #ffff80;
+        border-radius: 50%;
+      }
+
+      .button4{
+        background-color: white;
+        color: black;
+        border: 4px solid #53ff1a;
+        text-align: center;
+      }
+      .button4:hover {
+        background-color: #8cff66;
+        border-radius: 50%;
+      }
+
+      .button5 {
+        background-color: white;
+        color: black;
+        border: 4px solid #3333ff;
+        text-align: center;
+      }
+      .button5:hover {
+        background-color: #8080ff;
+        border-radius: 50%;
+      }
+
+      .button6{
+        background-color: white;
+        color: black;
+        border: 4px solid #9900ff;
+        text-align: center;
+      }
+      .button6:hover {
+        background-color: #c266ff;
+        border-radius: 50%;
+      }
+
+      .button7 {
+        background-color: white;
+        color: black;
+        border: 4px solid #000000;
+        text-align: center;
+      }
+       .button7:hover {
+         background-color: #404040;
+         color: white;
+         border-radius: 50%;
+       }
+
+       .button8 {
+         border-radius: 50%;
+         background-color: white;
+         width: 50%;
+         color: #000066
+       }
+       .button8:hover {
+         width: 300px;
+       }
+       h1{
+         color: white;
+       }
+
+       input{
+         border: none;
+         border-bottom: 3px solid #6600cc;
+       }
+       #output{
+         color: white;
+       }
+       #test{
+         color: white;
+       }
+   </style>
+ </head>
+
+ <body>
+   <div class = "all">
+  <h1> Your feelings in a week :) :( :| </h1>
+  <h2> Monday: </h2><input type ="text" id= "inputM"> <input type= "button" value= "Happy Submit!" class= "button1" onclick= "monday()">
+  <br> <br>
+  <h2> Tuesay: </h2> <input type ="text" id= "inputT"> <input type= "button" value= "Frustrated Submit!" class= "button2" onclick= "tuesday()">
+  <br> <br>
+  <h2> Wednesday: </h2> <input type ="text" id= "inputW"> <input type= "button" value= "Stressed Submit!" class= "button3" onclick= "wednesday()">
+  <br> <br>
+  <h2> Thursday: </h2> <input type ="text" id= "inputTH"> <input type= "button" value= "sad Submit!" class= "button4" onclick= "thursday()">
+  <br> <br>
+  <h2> Friday: </h2> <input type ="text" id= "inputF"> <input type= "button" value= "angry Submit!" class= "button5" onclick= "friday()">
+  <br> <br>
+  <h2> Saturday: </h2> <input type ="text" id= "inputS"> <input type= "button" value= "worry Submit!" class= "button6" onclick= "saturday()">
+  <br> <br>
+  <h2> Sunday: </h2> <input type ="text" id= "inputSU"> <input type= "button" value= "Best Submit!" class= "button7" onclick= "sunday()">
+  <br><br>
+  <input type = "button" value = "Random feeling in your week" class= "button8" onclick = "missedDays()">
+
+  <span id= "output"></span>
+  <br><br><br>
+  <span id= "test"></span>
+  <!-- I have 2 ouputs because one is for the missingdays and one for outputing the generated word-->
+ </div>
+ </body>
+</html>
